@@ -1,17 +1,15 @@
 n = int(input())
 
-ary = list(map(int, input().split()))
+a = list(map(int, input().split()))
+a = sorted(a, reverse=True)
 
-count = 0
-check = True
+alice = 0
+bob   = 0
 
-while check:
-  for i in range(n):
-    if ary[i] % 2 == 0:
-      ary[i] = ary[i] / 2
-    else:
-      check = False
+for i in range(n):
+  if i % 2 == 0:
+    alice += a[i]
+  else:
+    bob += a[i]
 
-  if check: count += 1
-
-print(count)
+print(abs(alice - bob))
