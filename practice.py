@@ -1,15 +1,18 @@
-n = int(input())
+s = input()
 
-a = list(map(int, input().split()))
-a = sorted(a, reverse=True)
+check = False
 
-alice = 0
-bob   = 0
+if s[0] != 'A': check = True
 
-for i in range(n):
-  if i % 2 == 0:
-    alice += a[i]
-  else:
-    bob += a[i]
+if 'C' not in s[2:-2]:
+  check = True
+else:
+  ci    = s[2:-2].find('C')
+  s     = s[1:ci + 2] + s[ci + 3:]
 
-print(abs(alice - bob))
+if not s.islower(): check = True
+
+if check:
+  print('WA')
+else:
+  print('AC')
