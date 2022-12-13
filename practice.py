@@ -1,59 +1,21 @@
+DX = [1, 0, -1, 0, 1, -1, -1, 1]
+DY = [0, 1, 0, -1, 1, 1, -1, -1]
+
 H, W = map(int, input().split())
-S    = []
+S    = [input() for i in range(H)]
+
+result = [[0 if v == '.' else '#' for v in row] for row in S]
 
 for i in range(H):
-  S.append(list(input()))
+  for j in range(W):
+    if S[i][j] != '.': continue
 
-for h in range(H):
-  for w in range(W):
-    if h == 0:
-      if w == 0:
-        if S[h][w] != '#':
-          string = S[h][w + 1] + S[h + 1][w] + S[h + 1][w + 1]
+    for dx, dy in zip(DX, DY):
+      ni, nj = i + dx, j + dy
 
-          S[h][w] = str(string.count('#'))
-      elif w == W - 1:
-        if S[h][w] != '#':
-          string = S[h][w - 1] + S[h + 1][w - 1] + S[h + 1][w]
+      if ni < 0 or ni >= H or nj < 0 or nj >= W: continue
 
-          S[h][w] = str(string.count('#'))
-      else:
-        if S[h][w] != '#':
-          string = S[h][w - 1] + S[h][w + 1] + S[h + 1][w - 1] + S[h + 1][w] + S[h + 1][w + 1]
+      if S[ni][nj] == '#': result[i][j] += 1
 
-          S[h][w] = str(string.count('#'))
-    elif h == H - 1:
-      if w == 0:
-        if S[h][w] != '#':
-          string = S[h - 1][w] + S[h - 1][w + 1] + S[h][w + 1]
-
-          S[h][w] = str(string.count('#'))
-      elif w == W - 1:
-        if S[h][w] != '#':
-          string = S[h - 1][w - 1] + S[h - 1][w] + S[h][w - 1]
-
-          S[h][w] = str(string.count('#'))
-      else:
-        if S[h][w] != '#':
-          string = S[h - 1][w - 1] + S[h - 1][w] + S[h - 1][w + 1] + S[h][w - 1] + S[h][w + 1]
-
-          S[h][w] = str(string.count('#'))
-    else:
-      if w == 0:
-        if S[h][w] != '#':
-          string = S[h - 1][w] + S[h - 1][w + 1] + S[h][w + 1] + S[h + 1][w] + S[h + 1][w + 1]
-
-          S[h][w] = str(string.count('#'))
-      elif w == W - 1:
-        if S[h][w] != '#':
-          string = S[h - 1][w - 1] + S[h - 1][w] + S[h][w - 1] + S[h + 1][w - 1] + S[h + 1][w]
-
-          S[h][w] = str(string.count('#'))
-      else:
-        if S[h][w] != '#':
-          string = S[h - 1][w - 1] + S[h - 1][w] + S[h - 1][w + 1] + S[h][w - 1] + S[h][w + 1] + S[h + 1][w - 1] + S[h + 1][w] + S[h + 1][w + 1]
-
-          S[h][w] = str(string.count('#'))
-
-for i in range(H):
-  print("".join(S[i]))
+for row in result:
+  print(*row, sep='')
