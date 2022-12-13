@@ -1,18 +1,13 @@
-s = input()
+A = int(input())  # 500円玉の枚数
+B = int(input())  # 100円玉の枚数
+C = int(input())  # 50円玉の枚数
+X = int(input())  # 合計金額
 
-check = False
+count = 0
 
-if s[0] != 'A': check = True
+for a in range(A + 1):
+  for b in range(B + 1):
+    for c in range(C + 1):
+      if (500 * a) + (100 * b) + (50 * c) == X: count += 1
 
-if s[2:-1].count('C') != 1:
-  check = True
-else:
-  ci    = s[2:-1].find('C')
-  s     = s[1:ci + 2] + s[ci + 3:]
-
-if not s.islower(): check = True
-
-if check:
-  print('WA')
-else:
-  print('AC')
+print(count)
