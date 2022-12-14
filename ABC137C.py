@@ -16,4 +16,7 @@ S = list(map(''.join, S))
 for s in S:
   num[s] += 1
 
-print(num)
+for key in num:
+  count += (num[key] * (num[key] - 1)) // 2
+
+print(count)
