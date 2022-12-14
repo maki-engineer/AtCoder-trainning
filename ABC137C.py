@@ -1,5 +1,9 @@
+from collections import defaultdict
+
 N = int(input())
 S = []
+
+num = defaultdict(int)
 
 count = 0
 
@@ -9,8 +13,7 @@ for i in range(N):
 
 S = list(map(''.join, S))
 
-for i in range(1, N):
-  for j in range(i):
-    if S[i] == S[j]: count += 1
+for s in S:
+  num[s] += 1
 
-print(count)
+print(num)
