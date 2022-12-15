@@ -21,14 +21,6 @@ while i < N:
 
   i = j
 
-words = [word.lower() for word in words]
-
-words.sort()
-
-for i in range(len(words)):
-  ary      = list(words[i])
-  ary[0]   = words[i][0].upper()
-  ary[-1]  = words[i][-1].upper()
-  words[i] = ''.join(ary)
+words.sort(key=str.lower)
 
 print(*words, sep='')
