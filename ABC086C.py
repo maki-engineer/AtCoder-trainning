@@ -2,21 +2,21 @@ N = int(input())
 
 result = 'Yes'
 
+pt, px, py = 0, 0, 0
+
 for i in range(N):
-  T, x, y = map(int, input().split())
+  t, x, y = map(int, input().split())
+  T, X, Y = t - pt, abs(x - px), abs(y - py)
 
   # T < x + y ならば、絶対にその秒数でそこにたどり着けないため、強制的にNoで終了
-  if T < (x + y):
+  if T < (X + Y):
     result = 'No'
     break
 
-  # 偶数時
-  if ((x + y) % 2 == 0) and (T % 2 == 0): continue
+  if (T % 2) != ((X + Y) % 2):
+    result = 'No'
+    break
 
-  # 奇数時
-  if ((x + y) % 2 == 1) and (T % 2 == 1): continue
-
-  result = 'No'
-  break
+  pt, px, py = t, x, y
 
 print(result)
