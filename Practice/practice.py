@@ -1,5 +1,8 @@
 A, B = map(int, input().split())
 
-S = [A + B, A - B, A * B]
-
-print(max(S))
+if A <= 5:
+  print(0)
+elif 6 <= A <= 12:
+  print(B // 2)
+else:
+  print(B)
