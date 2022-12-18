@@ -1,9 +1,14 @@
-N, K = map(int, input().split())
+A, B, C, D = map(int, input().split())
 
-for k in range(K):
-  if N % 200 == 0:
-    N //= 200
-  else:
-    N = int(str(N) + '200')
+while True:
+  C -= B
 
-print(N)
+  if C <= 0:
+    print('Yes')
+    exit()
+
+  A -= D
+
+  if A <= 0:
+    print('No')
+    exit()
