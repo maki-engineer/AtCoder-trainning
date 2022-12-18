@@ -1,6 +1,9 @@
-A, B = map(int, input().split())
+N, A = int(input()), int(input())
 
-if B % A == 0:
-  print(A + B)
-else:
-  print(B - A)
+five_en_count = N // 500
+
+N -= (500 * five_en_count)
+
+N -= A
+
+print('Yes' if N <= 0 else 'No')
