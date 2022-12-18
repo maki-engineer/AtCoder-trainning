@@ -1,5 +1,10 @@
-import math
+N, X, T = map(int, input().split())
 
-N = int(input())
+result = 0
+count  = 0
 
-print(math.ceil(N / 2))
+while count < N:
+  count  += X
+  result += T
+
+print(result)
