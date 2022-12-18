@@ -1,14 +1,9 @@
-import math
+N, K = map(int, input().split())
 
-X = int(input())
+for k in range(K):
+  if N % 200 == 0:
+    N //= 200
+  else:
+    N = int(str(N) + '200')
 
-money  = 100
-result = 0
-
-while True:
-  if money >= X: break
-
-  money   = math.floor(money * 1.01)
-  result += 1
-
-print(result)
+print(N)
