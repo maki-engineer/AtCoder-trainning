@@ -1,5 +1,8 @@
-A, B, T = map(int, input().split())
+N = int(input())
 
-t_count = (T + 0.5) // A
+while N >= 1000:
+  N -= 1000
 
-print(int(B * t_count))
+if N > 0: N = 1000 - N
+
+print(N)
