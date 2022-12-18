@@ -1,13 +1,9 @@
-H, W = map(int, input().split())
+N = int(input())
 
-if H == 1 or W == 1:
-  print(H * W)
-  exit()
+result = 0
 
-if H % 2 != 0:
-  H += 1
+for n in range(1, N + 1):
+  if (n % 3 != 0) and (n % 5 != 0):
+    result += n
 
-if W % 2 != 0:
-  W += 1
-
-print(int((W / 2) * (H / 2)))
+print(result)
