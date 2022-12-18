@@ -1,9 +1,7 @@
-N, A = int(input()), int(input())
+X, A, B = int(input()), int(input()), int(input())
 
-five_en_count = N // 500
+X -= A
 
-N -= (500 * five_en_count)
+b_count = X // B
 
-N -= A
-
-print('Yes' if N <= 0 else 'No')
+print(X - (B * b_count))
