@@ -1,13 +1,13 @@
 H, W = map(int, input().split())
 
-S = [['.'] * W for i in range(H)]
+if H == 1 or W == 1:
+  print(H * W)
+  exit()
 
-result = 0
+if H % 2 != 0:
+  H += 1
 
-for h in range(H):
-  for w in range(W):
-    if h % 2 == 0:
-      if w % 2 == 0:
-        result += 1
+if W % 2 != 0:
+  W += 1
 
-print(result)
+print(int((W / 2) * (H / 2)))
