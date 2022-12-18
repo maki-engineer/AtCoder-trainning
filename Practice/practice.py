@@ -1,5 +1,5 @@
-A, P = map(int, input().split())
+A, B, T = map(int, input().split())
 
-P += A * 3
+t_count = (T + 0.5) // A
 
-print(P // 2)
+print(int(B * t_count))
