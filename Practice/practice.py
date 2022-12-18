@@ -1,7 +1,5 @@
-r, g, b = map(int, input().split())
+A, P = map(int, input().split())
 
-num = (100 * r) + (10 * g) + (b)
+P += A * 3
 
-print(num)
-
-print('YES' if num % 4 == 0 else 'NO')
+print(P // 2)
