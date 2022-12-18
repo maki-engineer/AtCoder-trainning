@@ -1,7 +1,7 @@
-X, A, B = int(input()), int(input()), int(input())
+r, g, b = map(int, input().split())
 
-X -= A
+num = (100 * r) + (10 * g) + (b)
 
-b_count = X // B
+print(num)
 
-print(X - (B * b_count))
+print('YES' if num % 4 == 0 else 'NO')
