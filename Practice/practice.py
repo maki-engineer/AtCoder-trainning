@@ -1,14 +1,14 @@
-N = int(input())
+import math
 
+X = int(input())
+
+money  = 100
 result = 0
-money  = 0
-num    = 1
 
 while True:
-  if money >= N: break
+  if money >= X: break
 
-  money  += num
-  num    += 1
+  money   = math.floor(money * 1.01)
   result += 1
 
 print(result)
