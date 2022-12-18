@@ -1,8 +1,6 @@
 A, B = map(int, input().split())
 
-if A <= 5:
-  print(0)
-elif 6 <= A <= 12:
-  print(B // 2)
+if B % A == 0:
+  print(A + B)
 else:
-  print(B)
+  print(B - A)
