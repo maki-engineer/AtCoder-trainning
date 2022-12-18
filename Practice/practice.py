@@ -1,14 +1,14 @@
-A, B, C, D = map(int, input().split())
+import math
 
-while True:
-  C -= B
+P = int(input())
 
-  if C <= 0:
-    print('Yes')
-    exit()
+count  = 0
+result = 0
 
-  A -= D
+for i in range(10, 0, -1):
+  if P >= math.factorial(i):
+    count   = P // math.factorial(i)
+    result += P // math.factorial(i)
+    P      -= math.factorial(i) * count
 
-  if A <= 0:
-    print('No')
-    exit()
+print(result)
