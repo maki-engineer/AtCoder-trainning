@@ -1,12 +1,18 @@
-import math
+N = int(input())
 
-A, B = map(int, input().split())
+S      = []
 
-for n in range(1, 10001):
-  a, b = math.floor(n * 0.08), math.floor(n * 0.1)
+for n in range(N):
+  count  = 0
+  i, num = n, n + 1
 
-  if a == A and b == B:
-    print(n)
-    exit()
+  while True:
+    if num % 2 == 0:
+      num   /= 2
+      count += 1
+    else:
+      break
 
-print(-1)
+  S.append(count)
+
+print(S.index(max(S)) + 1)
