@@ -2,16 +2,22 @@ import numpy as np
 
 N, K = map(int, input().split())
 
-while K > 0:
-    N = "0O" + str(N)
-    N = int(N,0)
-    b = ""
-    N = np.base_repr(N, 9)
-    n = list(str(N))
-    for i in range(len(n)):
-        if n[i] == "8":
-            n[i] = "5"
-        b += n[i]
-    N = b
-    K -= 1
+for i in range(K):
+
+  N = "0O" + str(N)
+  N = int(N, 0)
+  N = np.base_repr(N, 9)
+
+  b = ""
+
+  n = list(str(N))
+
+  for k in range(len(n)):
+    if n[k] == "8":
+      n[k] = "5"
+
+    b += n[k]
+
+  N = b
+
 print(int(b))
