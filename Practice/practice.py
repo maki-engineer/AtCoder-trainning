@@ -1,17 +1,17 @@
-def base10int(value, base):
-  if (int(value / base)):
-    return base10int(int(value / base), base) + str(value % base)
-  return str(value % base)
+import numpy as np
 
-N, K = map(str, input().split())
-N    = int(N, 8)
-K    = int(K)
+N, K = map(int, input().split())
 
-for i in range(K):
-  N = base10int(N, 9)
-  N = N.replace('8', '5')
-  N = int(N, 8)
-
-N = base10int(N, 8)
-
-print(N)
+while K > 0:
+    N = "0O" + str(N)
+    N = int(N,0)
+    b = ""
+    N = np.base_repr(N, 9)
+    n = list(str(N))
+    for i in range(len(n)):
+        if n[i] == "8":
+            n[i] = "5"
+        b += n[i]
+    N = b
+    K -= 1
+print(int(b))
