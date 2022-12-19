@@ -1,14 +1,12 @@
 import math
 
-P = int(input())
+A, B = map(int, input().split())
 
-count  = 0
-result = 0
+for n in range(1, 10001):
+  a, b = math.floor(n * 0.08), math.floor(n * 0.1)
 
-for i in range(10, 0, -1):
-  if P >= math.factorial(i):
-    count   = P // math.factorial(i)
-    result += P // math.factorial(i)
-    P      -= math.factorial(i) * count
+  if a == A and b == B:
+    print(n)
+    exit()
 
-print(result)
+print(-1)
