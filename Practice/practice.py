@@ -1,13 +1,6 @@
-A, B = map(int, input().split())
+K    = int(input())
+A, B = map(str, input().split())
 
-count = 0
+a, b = int(A, K), int(B, K)
 
-for n in range(A, B + 1):
-  num_str = str(n)
-
-  if num_str[0] != num_str[-1]: continue
-  if num_str[1] != num_str[-2]: continue
-
-  count += 1
-
-print(count)
+print(a * b)
