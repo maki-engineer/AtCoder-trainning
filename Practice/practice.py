@@ -1,18 +1,13 @@
-N = int(input())
+A, B = map(int, input().split())
 
-S      = []
+count = 0
 
-for n in range(N):
-  count  = 0
-  i, num = n, n + 1
+for n in range(A, B + 1):
+  num_str = str(n)
 
-  while True:
-    if num % 2 == 0:
-      num   /= 2
-      count += 1
-    else:
-      break
+  if num_str[0] != num_str[-1]: continue
+  if num_str[1] != num_str[-2]: continue
 
-  S.append(count)
+  count += 1
 
-print(S.index(max(S)) + 1)
+print(count)
