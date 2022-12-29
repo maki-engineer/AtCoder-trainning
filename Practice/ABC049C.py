@@ -1,37 +1,20 @@
-S, str_len, check = input(), 5, False
+S = input()
+N = len(S)
 
-while S:
-  check_str = S[:str_len]
+# 動的計画法用の配列
+dp = [False] * (N + 1)
 
-  if str_len == 5:
-    if (check_str == 'dream') or (check_str == 'erase'):
-      check = True
+# 初期条件
+dp[0] = True
 
-    str_len += 1
+for n in range(N + 1):
+  if n >= 5 and dp[n - 5] and S[n - 5:n] == 'erase':
+    dp[n] = True
+  if n >= 6 and dp[n - 6] and S[n - 6:n] == 'eraser':
+    dp[n] = True
+  if n >= 5 and dp[n - 5] and S[n - 5:n] == 'dream':
+    dp[n] = True
+  if n >= 7 and dp[n - 7] and S[n - 7:n] == 'dreamer':
+    dp[n] = True
 
-  elif str_len == 6:
-    if check_str == 'eraser':
-      S       = S[str_len:]
-      str_len = 5
-    else:
-      if check:
-        str_len = 5
-        S       = S[str_len:]
-        check   = False
-      else:
-        str_len += 1
-
-  else:
-    if check_str != 'dreamer':
-      if check:
-        str_len = 5
-        S       = S[str_len:]
-        check   = False
-      else:
-        print('NO')
-        exit()
-    else:
-      S       = S[str_len:]
-      str_len = 5
-
-print('YES')
+print('YES' if dp[N] else 'NO')
